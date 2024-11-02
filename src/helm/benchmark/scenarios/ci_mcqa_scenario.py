@@ -9,7 +9,7 @@ class CIMCQAScenario(Scenario):
     """CIMCQA is a multiple-choice question answering (MCQA) dataset designed to
     study concept inventories in CS Education."""
 
-    DATASET_DOWNLOAD_URL: str = "https://drive.google.com/uc?export=download&id=1siYjhDiasI5FIiS0ckLbo40UnOj8EU2h"
+    # SAMPLE DATASET_DOWNLOAD_URL: str = "https://drive.google.com/uc?export=download&id=1siYjhDiasI5FIiS0ckLbo40UnOj8EU2h"
 
     name = "ci_mcqa"
     description = (
@@ -17,6 +17,10 @@ class CIMCQAScenario(Scenario):
         "study concept inventories in CS Education."
     )
     tags = ["question_answering"]
+
+    def __init__(self, path: Optional[str] = None):
+        super().__init__()
+        self.path: Optional[str] = path
 
     def get_instances(self, output_path: str) -> List[Instance]:
         data_path: str = os.path.join("restricted", "bdsi_multiple_answers_removed.json")
